@@ -1,16 +1,15 @@
 package sample;
 
-//public classの後は「class名」
+// public classの後は「class名」
 public class selfIntroduction {
 
 		public static void main(String[] args) {
-//氏名
+// 氏名
 			String name = "山田 花子";
-//年齢
+// 年齢
 			int age = 25;
-//趣味
+// 趣味
 			String hobby = "映画鑑賞";
-
 /*
  * 自己紹介文を出力する処理
  */
