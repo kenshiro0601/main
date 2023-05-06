@@ -42,8 +42,12 @@ public class curriculum_1_5 {
 
 		// 箱(括弧内)の中身を表示　※BMI = (String.format("%.1f", 〜))
 		System.out.println( "BMIは" + (String.format("%.1f", BMI) + "です" ));   	
+		
 
+		//改行
+		System.out.println(" ");
 
+		
 		// Q3 Q1で宣言した変数に再代入し、下記の通りコンソールに出力してください
 		// 初めまして鈴木一郎です
 		// 年齢は24歳です
