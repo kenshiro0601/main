@@ -10,7 +10,7 @@ public class curriculum_1_8 {
 		int a = 20;
 		int b = 5;
 		// result_1に「変数 a の値は変数 b の値以上」という条件式を代入。
-		boolean result_1 = a > b ;
+		boolean result_1 = a >= b ;
 		// 箱の中身を表示
 		System.out.println(result_1 + "\n");
 
@@ -43,10 +43,10 @@ public class curriculum_1_8 {
 		// boolean型変数 result_4 をコンソールに出力して下さい。
 
 		// 「g」という箱
-		int g = 7;
+		int g = 4;
 		// result_4 に「変数 g の値は5以下 または 変数 g の値は10以上」という条件式を代入
-		boolean result_4 = 5 <= g || g <= 10;
+		boolean result_4 = g <= 5 || g >= 10; 
 		// 箱の中身を表示
-		System.out.println(result_4 + "\n");
+		System.out.println(result_4);
 	}
 }
