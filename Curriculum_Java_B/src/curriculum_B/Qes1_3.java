@@ -97,7 +97,9 @@ public class Qes1_3 {
 
 		// 同じ型の複数の値をまとめて一つの変数として扱う。
 		String [] janken = {"グー", "チョキ", "パー"};
+		// 変数「enemyHand(相手の手)」というデータの箱を用意
 		int enemyHand = 0;
+		// 変数「count(回数)」というデータの箱を用意
 		int count = 0;
 
 		// falseの宣言。(ループを繰り返す)
