@@ -16,93 +16,29 @@ public class Qes4 {
 		// 09 * 01 = 09 || 09 * 02 = 18 || 09 * 03 = 27 || 09 * 04 = 36 || 09 * 05 = 45 || 09 * 06 = 54 || 09 * 07 = 63 || 09 * 08 = 72 || 09 * 09 = 81	
 
 
+
 		/*
 		 * aの値が10より小さければ「true = インクリメントで+1される。」
-		 * 9>9(false)になった時「a = 9」は表示されない。「a = 1~8」まで表示。
+		 * 10>10(false)になった時「a = 10」は表示されない。「a = 1~9」まで表示。
 		 */
-		for(int a = 1; a < 9; a++){
-			// String.formatメソッドで数値を2桁でゼロ埋め処理。「print」で横並びに表示。
-			System.out.print( 0 + "1 * " + 0 + a + " = " +(String.format("%02d",(1 * a))) + " || ");
+		for (int a = 1; a < 10; a++) {
+			// 同様の処理
+			for (int b = 1; b < 10; b++) {
 
-		}
-		// 「09」の部分のみ「||」を除かないといけない為別処理。以下同じ処理。
-		for(int a1 = 9; a1 < 10; a1++){
-			// 上記と同じ処理
-			System.out.print( 0 + "1 * " + 0 + a1 + " = " +(String.format("%02d",(1 * a1))) + "\n");
+				// aの値とbの値で掛け算
+				int result = a * b;
 
-		}
-		// 2の段：同様の処理
-		for(int b = 1; b < 9; b++){
-			System.out.print( 0 + "2 * " + 0 + b + " = " +(String.format("%02d",(2 * b))) + " || ");
+				// String.formatメソッドで数値を2桁でゼロ埋め処理。
+				System.out.print(String.format("%02d",a) + " * " + String.format("%02d",b) + " = " + String.format("%02d",result));
 
-		}
-		for(int b1 = 9; b1 < 10; b1++){
-			System.out.print( 0 + "2 * " + 0 + b1 + " = " +(String.format("%02d",(2 * b1))) + "\n");
+				// 9の倍数で「||」を除く処理
+				if (b != 9) {
+					System.out.print(" || ");
+				}
 
-		}
-		// ３の段：同様の処理
-		for(int c = 1; c < 9; c++){
-			System.out.print( 0 + "3 * " + 0 + c + " = " +(String.format("%02d",(3 * c))) + " || ");
-
-		}
-		for(int c1 = 9; c1 < 10; c1++){
-			System.out.print( 0 + "3 * " + 0 + c1 + " = " +(String.format("%02d",(3 * c1))) + "\n");
-
-		}
-		// ４の段：同様の処理
-		for(int d = 1; d < 9; d++){
-			System.out.print( 0 + "4 * " + 0 + d + " = " +(String.format("%02d",(4 * d))) + " || ");
-
-		}
-		for(int d1 = 9; d1 < 10; d1++){
-			System.out.print( 0 + "4 * " + 0 + d1 + " = " +(String.format("%02d",(4 * d1))) + "\n");
-
-		}
-		// 5の段：同様の処理
-		for(int e = 1; e < 9; e++){
-			System.out.print( 0 + "5 * " + 0 + e + " = " +(String.format("%02d",(5 * e))) + " || ");
-
-		}
-		for(int e1 = 9; e1 < 10; e1++){
-			System.out.print( 0 + "5 * " + 0 + e1 + " = " +(String.format("%02d",(5 * e1))) + "\n");
-
-		}
-		// 6の段：同様の処理
-		for(int f = 1; f < 9; f++){
-			System.out.print( 0 + "6 * " + 0 + f + " = " +(String.format("%02d",(6 * f))) + " || ");
-
-		}
-		for(int f1 = 9; f1 < 10; f1++){
-			System.out.print( 0 + "6 * " + 0 + f1 + " = " +(String.format("%02d",(6 * f1))) + "\n");
-
-		}
-		// 7の段：同様の処理
-		for(int g = 1; g < 9; g++){
-			System.out.print( 0 + "7 * " + 0 + g + " = " +(String.format("%02d",(7 * g))) + " || ");
-
-		}
-		for(int g1 = 9; g1 < 10; g1++){
-			System.out.print( 0 + "7 * " + 0 + g1 + " = " +(String.format("%02d",(7 * g1))) + "\n");
-
-		}
-		// 8の段：同様の処理
-		for(int h = 1; h < 9; h++){
-			System.out.print( 0 + "8 * " + 0 + h + " = " +(String.format("%02d",(8 * h))) + " || ");
-
-		}
-		for(int h1 = 9; h1 < 10; h1++){
-			System.out.print( 0 + "8 * " + 0 + h1 + " = " +(String.format("%02d",(8 * h1))) + "\n");
-
-		}
-		// 9の段：同様の処理
-		for(int i = 1; i < 9; i++){
-			System.out.print( 0 + "9 * " + 0 + i + " = " +(String.format("%02d",(9 * i))) + " || ");
-
-		}
-		for(int i1 = 9; i1 < 10; i1++){
-			System.out.print( 0 + "9 * " + 0 + i1 + " = " +(String.format("%02d",(9 * i1))));
-
+			}
+			// 改行
+			System.out.println();
 		}
 	}
-
 }
