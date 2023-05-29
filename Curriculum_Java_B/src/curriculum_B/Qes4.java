@@ -29,7 +29,7 @@ public class Qes4 {
 				int result = a * b;
 
 				// String.formatメソッドで数値を2桁でゼロ埋め処理。
-				System.out.print(String.format ("%02d", a) + " * " + String.format ("%02d", b) + " = " + String.format ("%02d",result));
+				System.out.print(String.format("%02d", a) + " * " + String.format("%02d", b) + " = " + String.format("%02d",result));
 
 				// 9の倍数で「||」を除く処理
 				if (b != 9) {

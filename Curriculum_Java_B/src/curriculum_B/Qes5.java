@@ -32,7 +32,7 @@ public class Qes5 {
 				int result = a * b;
 
 				// String.formatメソッドで数値を3桁でゼロ埋め処理。
-				System.out.print(String.format ("%03d", b) + " * " + String.format ("%03d", a) + " = " + String.format ("%03d", result));
+				System.out.print(String.format("%03d", b) + " * " + String.format("%03d", a) + " = " + String.format("%03d", result));
 
 				// 20の倍数で「||」を除く処理
 				if (b != 20) {
