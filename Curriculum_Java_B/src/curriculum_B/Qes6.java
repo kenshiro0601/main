@@ -30,7 +30,7 @@ public class Qes6 {
 		//		『 その他商品 』は指定の商品ではありません
 
 
-		// キーボードから1行の文字列の入力を受け付ける記述。読み込みのみのコード。
+		// キーボードから1行の文字列の入力を受け付ける読み込みコード。
 		Scanner input = new Scanner(System.in);
 
 		// ランダムな数値を生成[Random.nextInt()]
@@ -38,8 +38,8 @@ public class Qes6 {
 
 		// 在庫の値
 		int stock = 0;
-		int stocktv = 0;
-		int stockdisplay = 0;
+		int stockTv = 0;
+		int stockDisplay = 0;
 
 		// falseの宣言。(ループを繰り返す)
 		boolean fact1 = false;
@@ -48,9 +48,8 @@ public class Qes6 {
 		do {
 
 			/*
+			 * 入力した文字が[goodsの中へ]。区切り[ 、]の指定。
 			 * [nextLine]でコンソールに入力したものが出力。入力した文字が[goods]の中へ。
-			 * 区切り[ 、]の指定
-			 * String [] goods = input1.split(","); + String input1 = input.nextLine();の省略コード
 			 */
 			String[] goods = input.nextLine().split("、");
 
@@ -60,7 +59,7 @@ public class Qes6 {
 				// 代入された後にswitch文の実行。在庫(stock)が表示され、次のループへ。
 				switch (products) {
 
-				// 同様の処理
+				// 式の(products)値と一致した場合に処理。
 				case "パソコン":
 
 				case "冷蔵庫":
@@ -72,43 +71,46 @@ public class Qes6 {
 				case "加湿器":
 
 					/*
-					 * 数値を取得するメソッド(nextInt)でコンソールに入力したものが出力)。
 					 * 在庫を表す変数「stock」に、0以上12未満のランダムな数値を代入
 					 */
 					stock = ran.nextInt(12);
 
-					// 入力された家電の残り台数を出力。
+					// 入力された製品の残り台数を出力。
 					System.out.println(products + "の残り台数は" + stock + "台です" + "\n");
 					break;
 
-				// 同様の処理。最大個数11個からランダムで出た数字を引いて出力。
 				case "テレビ":
 
 					// テレビの在庫数を表す。
-					stocktv = ran.nextInt(11);
+					stockTv = ran.nextInt(12);
 
 					// テレビの在庫数の表示。
-					System.out.println(products + "の残り台数は" + stocktv + "台です" + "\n");
+					System.out.println(products + "の残り台数は" + stockTv + "台です" + "\n");
 					break;
 
 				case "ディスプレイ":
-
-					// テレビの在庫数(stock)を11から引いた値がディスプレイ
-					stockdisplay = 11 - stocktv;
+					/*
+					 * (stockTv != 0)：stockTvの値が0でない(true:テレビ在庫有)場合、
+					 * (11-stockTv) が評価。テレビ在庫をディスプレイ在庫から引いた値がstockDisplayに代入。
+					 * stockTvの値が0の(false)場合=テレビ在庫がない場合は、式2として0が評価。ディスプレイの在庫数がゼロとなる。
+					 */
+					stockDisplay = (stockTv != 0) ? 11 - stockTv : 0;
 
 					// ディスプレイの在庫数を表示。
-					System.out.println(products + "の残り台数は" + stockdisplay + "台です" + "\n");
+					System.out.println(products + "の残り台数は" + stockDisplay + "台です" + "\n");
 					break;
 
-				// switch文のどの[case]にも当てはまらない場合、[defalt]が実行される。
+					// switch文のどの[case]にも当てはまらない場合、[defalt]が実行。
 				default:
 					// 「false」に設定し、ループを繰り返す。
 					fact1 = false;
+
+					// メッセージの表示。
 					System.out.println("『 " + products + " 』は指定の商品ではありません" + "\n");
 					break;
 				}
 			}
-		// フラグをtrueに設定してループを終了
+			// フラグをtrueに設定してループを終了
 		} while(!fact1);
 	}
 }
