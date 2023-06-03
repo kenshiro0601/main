@@ -110,7 +110,7 @@ public class Qes6 {
 					break;
 				}
 			}
-			// フラグをtrueに設定してループを終了
+		// フラグをtrueに設定してループを終了
 		} while(!fact1);
 	}
 }
