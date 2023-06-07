@@ -39,7 +39,6 @@ public class Qes6 {
 		// 在庫の値
 		int stock = 0;
 		int stockTv = 0;
-		int stockDisplay = 0;
 
 		// falseの宣言。(ループを繰り返す)
 		boolean fact1 = false;
@@ -80,24 +79,14 @@ public class Qes6 {
 					break;
 
 				case "テレビ":
-
-					// テレビの在庫数を表す。
-					stockTv = ran.nextInt(12);
-
-					// テレビの在庫数の表示。
-					System.out.println(products + "の残り台数は" + stockTv + "台です" + "\n");
-					break;
-
 				case "ディスプレイ":
+					
 					/*
-					 * (stockTv != 0)：stockTvの値が0でない(true:テレビ在庫有)場合、
-					 * (11-stockTv) が評価。テレビ在庫をディスプレイ在庫から引いた値がstockDisplayに代入。
-					 * stockTvの値が0の(false)場合=テレビ在庫がない場合は、式2として0が評価。ディスプレイの在庫数がゼロとなる。
+					 * [products]が[テレビ]の場合、[ran.nextInt(12)]はランダムな整数を生成。[stockTv]に代入し、[stock]に代入。
+					 * [products]が[ディスプレイ]の場合、[stockTv]が[0]でなければ[11-stockTv]を計算し、ディスプレイの在庫を表示。
 					 */
-					stockDisplay = (stockTv != 0) ? 11 - stockTv : 0;
-
-					// ディスプレイの在庫数を表示。
-					System.out.println(products + "の残り台数は" + stockDisplay + "台です" + "\n");
+					stock = "テレビ".equals(products) ? (stockTv = ran.nextInt(12)) : ((stockTv != 0) ? 11 - stockTv : 0);
+					System.out.println(products + "の残り台数は" + stock + "台です" + "\n");
 					break;
 
 					// switch文のどの[case]にも当てはまらない場合、[defalt]が実行。
