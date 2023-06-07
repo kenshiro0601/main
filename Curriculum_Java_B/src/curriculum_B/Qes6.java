@@ -80,7 +80,7 @@ public class Qes6 {
 
 				case "テレビ":
 				case "ディスプレイ":
-					
+
 					/*
 					 * [products]が[テレビ]の場合、[ran.nextInt(12)]はランダムな整数を生成。[stockTv]に代入し、[stock]に代入。
 					 * [products]が[ディスプレイ]の場合、[stockTv]が[0]でなければ[11-stockTv]を計算し、ディスプレイの在庫を表示。
@@ -89,7 +89,7 @@ public class Qes6 {
 					System.out.println(products + "の残り台数は" + stock + "台です" + "\n");
 					break;
 
-					// switch文のどの[case]にも当てはまらない場合、[defalt]が実行。
+				// switch文のどの[case]にも当てはまらない場合、[defalt]が実行。
 				default:
 					// 「false」に設定し、ループを繰り返す。
 					fact1 = false;
