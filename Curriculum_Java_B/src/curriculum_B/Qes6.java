@@ -39,6 +39,7 @@ public class Qes6 {
 		// 在庫の値
 		int stock = 0;
 		int stockTv = 0;
+		int stockDisplay = 0;
 
 		// falseの宣言。(ループを繰り返す)
 		boolean fact1 = false;
@@ -79,21 +80,37 @@ public class Qes6 {
 					break;
 
 				case "テレビ":
+					
 				case "ディスプレイ":
 
+					// [stockTv]と[stockDisplay]が[0→在庫が設定されていない場合]
+					if (stockTv == 0 && stockDisplay == 0) {
+
+						// 0から11までのランダムな整数を生成。
+						stockTv = ran.nextInt(12);
+
+						/*
+						 *  [stockTv]の値から11を引き、[stockDisplay]へ代入。
+						 *  これでごうけいが11になるように設定。
+						 */
+						stockDisplay = 11 - stockTv;
+
+					}
 					/*
-					 * [products]が[テレビ]の場合、[ran.nextInt(12)]はランダムな整数を生成。[stockTv]に代入し、[stock]に代入。
-					 * [products]が[ディスプレイ]の場合、[stockTv]が[0]でなければ[11-stockTv]を計算し、ディスプレイの在庫を表示。
+					 * 条件が真＝入力された商品がテレビの場合[stockTv]の値が[stock]に代入。
+					 * 条件が偽＝入力された商品がディスプレイの場合[stockDisplay]の値が[stock]に代入
 					 */
-					stock = "テレビ".equals(products) ? (stockTv = ran.nextInt(12)) : ((stockTv != 0) ? 11 - stockTv : 0);
+					stock = "テレビ".equals(products) ? stockTv : stockDisplay;
+
+					// メッセージの陽x表示
 					System.out.println(products + "の残り台数は" + stock + "台です" + "\n");
 					break;
-
-				// switch文のどの[case]にも当てはまらない場合、[defalt]が実行。
+					
+				// 該当するcaseがない場合に実行。
 				default:
-					// 「false」に設定し、ループを繰り返す。
+					
+					// ループの終わりを設定
 					fact1 = false;
-
 					// メッセージの表示。
 					System.out.println("『 " + products + " 』は指定の商品ではありません" + "\n");
 					break;
