@@ -26,19 +26,19 @@ public class Qes7 {
 		 * 1から始まり、生徒の人数[変数number]までの範囲でループ。
 		 */
 		for (int i = 1; i <= number; i++) {
-			
+
 			// メッセージの表示
 			System.out.printf(i + "人目の「英語」の点数を入力してください" + " :");
-			
+
 			// 点数の入力して[englishScore]に代入
 			int englishScore = input.nextInt();
-			
+
 			// 変数[englishTotal]に変数[englishScore]を加算し、結果を[englishTotal]に代入。
 			englishTotal = englishTotal + englishScore;
 
 			// メッセージの表示
 			System.out.printf(i + "人目の「数学」の点数を入力してください" + " :");
-			
+
 			// 点数の入力して[englishScore]に代入
 			int mathScore = input.nextInt();
 
@@ -47,7 +47,7 @@ public class Qes7 {
 
 			// メッセージの表示
 			System.out.printf(i + "人目の「理科」の点数を入力してください" + " :");
-			
+
 			// 点数の入力して[englishScore]に代入
 			int scienceScore = input.nextInt();
 
@@ -56,54 +56,54 @@ public class Qes7 {
 
 			// メッセージの表示
 			System.out.printf(i + "人目の「社会」の点数を入力してください" + " :");
-			
+
 			// 点数の入力して[englishScore]に代入
 			int socialScore = input.nextInt();
-			
+
 			// 変数[socialTotal]に変数[socialScore]を加算し、結果を[socialTotal]に代入。
 			socialTotal = socialTotal + socialScore;
-			
+
 			// 各科目の点数の合計を[totalScore]に代入。
 			int totalScore = englishScore + mathScore + scienceScore + socialScore;
-			
+
 			// [totalScore]を科目数の4で割ることで平均点を計算。
 			double averageScore = (double) totalScore / 4;
-			
+
 			// 変数[averageScore]の値を[average[i](平均点)]に代入。
 			average[i] = averageScore;
-			
+
 			// 改行
 			System.out.println();
-			
-		 }
-			// 英語の平均点を計算して変数[englishAverage]に代入
-			double englishAverage = (double)englishTotal / number;
-			
-			// 数学の平均点を計算して変数 mathAverage に代入
-			double mathAverage = (double)mathTotal / number;
-			
-			// 理科の平均点を計算して変数 scienceAverage に代入
-			double scienceAverage = (double)scienceTotal / number;
-			
-			// 社会の平均点を計算して変数 socialAverage に代入
-			double socialAverage = (double)socialTotal / number;
-			
-			// 全体の平均点を計算して[totalAverage]に代入。
-			double totalAverage = ((double)englishTotal + (double)mathTotal + (double)scienceTotal + (double)socialTotal) / (4 * number);
 
-			/*
-			 *  生徒の平均点を順番に表示するためのループ。
-			 *  jの値が[average.length]より小さければ[true]で+1される。
-			 */
-			for (int j = 1; j < average.length; j++) {
-				System.out.printf("%d" + "人目の平均点は" + "%.2f" + "点です。" + "\n" , j , average[j]);
+		}
+		// 英語の平均点を計算して変数[englishAverage]に代入
+		double englishAverage = (double)englishTotal / number;
 
-			}
-			// 各メッセージの表示
-			System.out.printf("\n" + "英語の平均点は" + "%.2f" + "点です。" + "\n" , englishAverage);
-			System.out.printf("数学の平均点は" + "%.2f" + "点です。" + "\n" , mathAverage);
-			System.out.printf("理科の平均点は" + "%.2f" + "点です。" + "\n" , scienceAverage);
-			System.out.printf("社会の平均点は" + "%.2f" + "点です。" + "\n" , socialAverage);
-			System.out.printf("全体の平均点は" + "%.2f" + "点です。" + "\n" , totalAverage);
+		// 数学の平均点を計算して変数 mathAverage に代入
+		double mathAverage = (double)mathTotal / number;
+
+		// 理科の平均点を計算して変数 scienceAverage に代入
+		double scienceAverage = (double)scienceTotal / number;
+
+		// 社会の平均点を計算して変数 socialAverage に代入
+		double socialAverage = (double)socialTotal / number;
+
+		// 全体の平均点を計算して[totalAverage]に代入。
+		double totalAverage = ((double)englishTotal + (double)mathTotal + (double)scienceTotal + (double)socialTotal) / (4 * number);
+
+		/*
+		 *  生徒の平均点を順番に表示するためのループ。
+		 *  jの値が[average.length]より小さければ[true]で+1される。
+		 */
+		for (int j = 1; j < average.length; j++) {
+			System.out.printf("%d" + "人目の平均点は" + "%.2f" + "点です。" + "\n" , j , average[j]);
+
+		}
+		// 各メッセージの表示
+		System.out.printf("\n" + "英語の平均点は" + "%.2f" + "点です。" + "\n" , englishAverage);
+		System.out.printf("数学の平均点は" + "%.2f" + "点です。" + "\n" , mathAverage);
+		System.out.printf("理科の平均点は" + "%.2f" + "点です。" + "\n" , scienceAverage);
+		System.out.printf("社会の平均点は" + "%.2f" + "点です。" + "\n" , socialAverage);
+		System.out.printf("全体の平均点は" + "%.2f" + "点です。" + "\n" , totalAverage);
 	}
 }
