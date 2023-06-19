@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Qes7 {
 	public static void main(String[] args) {
-
+		
 		// キーボードから1行の文字列の入力を受け付ける読み込みコード。
 		Scanner input = new Scanner(System.in);
 		System.out.printf("生徒の人数を入力してください(2以上): ");
