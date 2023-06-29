@@ -7,100 +7,97 @@ public class Qes7 {
 	private static Scanner input;
 
 	public static void main(String[] args) {
-		
+
 		// キーボードから1行の文字列の入力を受け付ける読み込みコード。
 		input = new Scanner(System.in);
 		System.out.printf("生徒の人数を入力してください(2以上): ");
 
 		// 生徒の人数を入力して代入
-		int number = input.nextInt();
+		int studentNumber = input.nextInt();
 
-		// 生徒の平均点を格納するための配列を作成
-		double[] average = new double[number + 1];
+		// 科目名の配列を生成
+		String[] subject = { "英語", "数学", "理科", "社会" };
 
-		// 各科目の点数の値
-		int englishTotal = 0;
-		int mathTotal = 0;
-		int scienceTotal = 0;
-		int socialTotal = 0;
+		// 生徒の人数に応じた行数と科目の数に応じた列数の多次元配列を作成
+		int[][] scores = new int[studentNumber][subject.length];
 
-		/*
-		 * 左の値が右の値より小さければ[true]で+1される。
-		 * 生徒の点数を入力して合計を計算。
-		 */
-		for (int i = 1; i <= number; i++) {
+		// 生徒人数の繰り返し処理
+		for (int i = 0; i < studentNumber; i++) {
 
-			// メッセージの表示
-			System.out.printf(i + "人目の「英語」の点数を入力してください" + " :");
+			// 科目の繰り返し処理(各科目の平均点を計算するループ)
+			for (int j = 0; j < subject.length; j++) {
 
-			// 点数を入力してスコアに代入
-			int englishScore = input.nextInt();
+				// 生徒の各科目の点数を出力
+				System.out.printf("%d人目の「%s」の点数を入力してください: ", (i + 1) , subject[j]);
 
-			// 変数トータルに変数スコアを加算し、結果を代入。
-			englishTotal = englishTotal + englishScore;
+				// 入力から整数を読み取り、整数を配列のi番目の行とj番目の列の要素に代入
+				scores[i][j] = input.nextInt();
 
-			// メッセージの表示
-			System.out.printf(i + "人目の「数学」の点数を入力してください" + " :");
-
-			// 点数を入力してスコアに代入
-			int mathScore = input.nextInt();
-
-			// 変数トータルに変数スコアを加算し、結果を代入。
-			mathTotal = mathTotal + mathScore;
-
-			// メッセージの表示
-			System.out.printf(i + "人目の「理科」の点数を入力してください" + " :");
-
-			// 点数を入力してスコアに代入
-			int scienceScore = input.nextInt();
-
-			// 変数トータルに変数スコアを加算し、結果を代入。
-			scienceTotal = scienceTotal + scienceScore;
-
-			// メッセージの表示
-			System.out.printf(i + "人目の「社会」の点数を入力してください" + " :");
-
-			// 点数を入力してスコアに代入
-			int socialScore = input.nextInt();
-
-			// 変数トータルに変数スコアを加算し、結果を代入。
-			socialTotal = socialTotal + socialScore;
-			
-			// 各科目の合計の平均を求める。
-			average[i] = ((double)englishScore + (double)mathScore + (double)scienceScore + (double)socialScore) / 4;
-
+			}
 			// 改行
 			System.out.println();
 
 		}
-		// 英語の平均点を計算して代入
-		double englishAverage = (double)englishTotal / number;
+		// 各生徒の平均点を格納するための配列を宣言
+		double[] average = new double[studentNumber];
 
-		// 数学の平均点を計算して代入
-		double mathAverage = (double)mathTotal / number;
+		// 各科目の合計点を格納するための配列を宣言
+		int[] subjectTotal = new int[subject.length];
 
-		// 理科の平均点を計算して代入
-		double scienceAverage = (double)scienceTotal / number;
+		// 生徒人数の繰り返し処理
+		for (int i = 0; i < studentNumber; i++) {
 
-		// 社会の平均点を計算して代入
-		double socialAverage = (double)socialTotal / number;
+			// 科目の繰り返し処理(各科目の平均点を計算するループ)
+			for (int j = 0; j < subject.length; j++) {
 
-		// 全体の平均点を計算して代入。
-		double totalAverage = ((double)englishTotal + (double)mathTotal + (double)scienceTotal + (double)socialTotal) / (4 * number);
+				// 科目ごとの合計点を計算
+				subjectTotal[j] = subjectTotal[j] + scores[i][j];
 
-		/*
-		 *  jの値が右より小さければ[true]で+1される。
-		 *  生徒の平均点を順番に表示するためのループ。
-		 */
-		for (int j = 1; j < average.length; j++) {
-			System.out.printf("%d人目の平均点は%.2f点です。%n" , j , average[j]);
-
+				// 各生徒の合計点を計算
+				average[i] = average[i] + scores[i][j];
+				
+			}
+			// 各生徒の平均点を計算
+			average[i] = average[i] / subject.length;
+			
 		}
-		// 各メッセージの表示
-		System.out.printf("%n英語の平均点は%.2f点です。%n" , englishAverage);
-		System.out.printf("数学の平均点は%.2f点です。%n" , mathAverage);
-		System.out.printf("理科の平均点は%.2f点です。%n" , scienceAverage);
-		System.out.printf("社会の平均点は%.2f点です。%n" , socialAverage);
-		System.out.printf("全体の平均点は%.2f点です。%n" , totalAverage);
+		// 各科目の平均点を格納
+		double[] subjectAverage = new double[subject.length]; 
+
+		// 科目の繰り返し処理(各科目の平均点を計算するループ)
+		for (int j = 0; j < subject.length; j++) {
+
+			// 各科目の平均点を計算
+			subjectAverage[j] = (double) subjectTotal[j] / studentNumber;
+			
+		}
+		// 全体の平均点を表すための変数
+		double totalAverage = 0;
+
+		// 科目の繰り返し処理(各科目の平均点を計算するループ)
+		for (int j = 0; j < subject.length; j++) {
+
+			// 各科目の平均点を合計
+			totalAverage = totalAverage + subjectAverage[j];
+			
+		}
+		// 全体の平均点を計算
+		totalAverage = totalAverage / subject.length;
+
+		// 生徒人数の繰り返し処理
+		for (int i = 0; i < studentNumber; i++) {
+			System.out.printf("%d人目の平均点は%.2f点です。%n", (i + 1), average[i]);
+			
+		}
+		// 改行
+		System.out.println();
+
+		// 科目の繰り返し処理(各科目の平均点を計算するループ)
+		for (int j = 0; j < subject.length; j++) {
+			System.out.printf("%sの平均点は%.2f点です。%n", subject[j], subjectAverage[j]);
+			
+		}
+		// 全体の平均点を表すメッセージ
+		System.out.printf("全体の平均点は%.2f点です。%n", totalAverage);
 	}
 }
